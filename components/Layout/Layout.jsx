@@ -1,12 +1,13 @@
 import i18nextConfig from "../../next.config";
 import Head from "next/head";
-import Script from "next/script";
-import { Footer, Header, Scripts } from "../../components";
-import useSWR from "swr";
-import fetcher from "../../utils/fetcher";
+import { useRouter } from "next/router";
+import { BottomNav, Sidebar } from "../../components";
+
+const AUTH_PATHS = ["/login", "/signup"];
 
 const Layout = ({ children }) => {
-   // const { data: settings } = useSWR("/settings", fetcher);
+   const router = useRouter();
+   const isAuthPage = AUTH_PATHS.includes(router.pathname);
 
    return (
       <>
@@ -64,30 +65,23 @@ const Layout = ({ children }) => {
             })}
          </Head>
 
-         {/* Sprites */}
-         {/* <Sprites /> */}
-
-         {/* Body */}
-         <div className="wrapper">
-            <div className="app">
-               {/* Header */}
-               <Header />
-
-               <div className="content-wrapper">{children}</div>
-
-               {/* Footer */}
-               <Footer />
+         {isAuthPage ? (
+            <div className="flex min-h-screen items-center justify-center bg-cream">
+               <div className="mx-auto w-full max-w-[480px] px-4">
+                  {children}
+               </div>
             </div>
-         </div>
-
-         {/* Nav Bottom */}
-         {/* <NavBottom /> */}
-
-         {/* Scripts */}
-         <Script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></Script>
-         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></Script>
-
-         {/* {settings && <Scripts settings={settings} />} */}
+         ) : (
+            <>
+               <Sidebar />
+               <div className="md:ml-[240px]">
+                  <div className="mx-auto min-h-screen max-w-[480px] md:max-w-[800px] px-4 pb-20 md:pb-6 md:pt-2">
+                     {children}
+                  </div>
+               </div>
+               <BottomNav />
+            </>
+         )}
       </>
    );
 };

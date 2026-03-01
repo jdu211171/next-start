@@ -7,6 +7,35 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#F5A623',
+          light: '#FFD080',
+          dark: '#E09000',
+          50: '#FFF8F0',
+          100: '#FFEDCC',
+          500: '#F5A623',
+          600: '#E09000',
+          700: '#CC7A00',
+        },
+        cream: '#FFFBF5',
+        success: '#10B981',
+        danger: '#EF4444',
+      },
+      fontFamily: {
+        sans: [
+          'Inter',
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'sans-serif',
+        ],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
