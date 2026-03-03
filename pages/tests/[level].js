@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
-import { jlptLevels, mockQuestions } from '../../utils/mockData';
+import { jlptLevels, mockQuestions, levelColors } from '../../utils/mockData';
 
 export default function TestDetail() {
   const router = useRouter();
@@ -38,7 +38,10 @@ export default function TestDetail() {
       </Link>
 
       {/* Level Header */}
-      <div className="mt-4 bg-gradient-to-r from-primary to-primary-dark rounded-2xl p-6 text-white">
+      <div
+        className="mt-4 rounded-2xl p-6 text-white"
+        style={{ background: `linear-gradient(to right, ${levelColors[level]}, ${levelColors[level]}dd)` }}
+      >
         <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-full bg-white/30 flex items-center justify-center font-bold text-2xl">
             {levelData.level}

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { jlptLevels } from "../../utils/mockData";
+import { jlptLevels, levelColors } from "../../utils/mockData";
 
 export default function TestsList() {
   const router = useRouter();
@@ -28,7 +28,10 @@ export default function TestsList() {
           className="bg-white rounded-2xl border border-orange-100 p-5 mb-4 md:mb-0"
         >
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white font-bold text-lg">
+            <div
+              className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg"
+              style={{ backgroundColor: levelColors[level.id] }}
+            >
               {level.level}
             </div>
             <div>

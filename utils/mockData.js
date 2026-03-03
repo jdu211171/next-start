@@ -412,6 +412,14 @@ const achievements = [
   { id: 3, emoji: '⭐', name: 'High Scorer' },
 ];
 
+const levelColors = {
+  n5: '#FBCB8B',
+  n4: '#F5AD5A',
+  n3: '#F09A3E',
+  n2: '#E07D1A',
+  n1: '#C46A0A',
+};
+
 module.exports = {
   mockUser,
   jlptLevels,
@@ -420,4 +428,5 @@ module.exports = {
   recommendedTests,
   testResults,
   achievements,
+  levelColors,
 };
